@@ -1,0 +1,23 @@
+.footer{
+   height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    font-family: 'Roboto', sans-serif;
+}
+.footer__items{
+    list-style: none;
+    color: white;
+}
+.footer__item{
+    padding-block: 10px;
+}
+.footer__link{
+    color: gray;
+    text-decoration: none;
+    font-size: 14px;
+}
+.footer__copyright{
+    font-size: 13px;
+    color: gray;
+}

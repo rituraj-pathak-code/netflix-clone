@@ -1,0 +1,55 @@
+.movie__modal{
+
+    height: 600px;
+    width: 600px;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #312f2f;
+    color: white;
+    z-index: 9999;
+
+}
+.movie_modal__banner{
+    position: relative;
+}
+.modal__buttons{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+.modal__button{
+    margin-right: 1rem;
+    width: 100px;
+    height: 30px;
+    outline: none;
+    border: none;
+    background-color: #111111be;
+    color: white;
+    cursor: pointer;
+    
+}
+.modal__closebtn{
+   position: fixed;
+   z-index: 1000;
+   height: 40px;
+   width: 40px;
+   right: 20px;
+   top: 15px;
+   font-size: 1.5rem;
+   font-weight: 900;
+   background-color: white;
+   outline: none;
+   border: none;
+   cursor: pointer;
+   border-radius: 50%;
+   text-align: center;
+}
+.modal__button:hover{
+    filter: invert(1);
+}
+.modal__moviedesc{
+    padding: 1rem;
+}

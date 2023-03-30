@@ -1,0 +1,43 @@
+.nav{
+    position:fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 65px;
+    transition: all 0.3s ease-in;
+    z-index: 100;
+}
+.nav__logo{
+    position: fixed;
+    left: 20px;
+    width: 80px;
+    object-fit: contain;
+}
+.nav__avatar{
+    position: fixed;
+    right: 20px;
+    width: 30px;
+    object-fit: contain;
+}
+.nav__black{
+    background-color: #111111d5;
+}
+
+.nav__links{
+    position: fixed;
+    left: 150px;
+    list-style: none;
+}
+.nav__links li{
+    display: inline-block;
+    margin-inline: 1rem;
+}
+.nav__links a{
+    
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    
+}
