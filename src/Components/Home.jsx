@@ -3,20 +3,21 @@ import { useState } from "react";
 import "./Home.css";
 import Row from "./Row";
 import Banner from "./Banner";
-import Nav from "./Nav";
+
 import Footer from "./Footer";
 import requests from "../requests.js";
 
-function Home() {
+function Home(props) {
   const [isModalOpen, setModalOpen] = useState(false);
   const checkModal = (isOpenModal) => {
     setModalOpen(isOpenModal);
     // console.log(isModalOpen);
   };
+
   return (
     <div className={`home ${isModalOpen ? "home_scrolllock" : ""}`}>
       <div className={`${isModalOpen ? "home_overlay" : ""}`}></div>
-      <Nav />
+
       <Banner />
       <Row
         title="Netflix Original"

@@ -1,16 +1,18 @@
+.movie_modal__container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
 .movie__modal{
-
-    height: 600px;
+    height: 500px;
     width: 600px;
     background-color: white;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 15%;
     background-color: #312f2f;
     color: white;
     z-index: 9999;
-
+    animation: fadein 0.3s ease-out;
 }
 .movie_modal__banner{
     position: relative;
@@ -32,7 +34,7 @@
     
 }
 .modal__closebtn{
-   position: fixed;
+   position: absolute;
    z-index: 1000;
    height: 40px;
    width: 40px;
@@ -52,4 +54,22 @@
 }
 .modal__moviedesc{
     padding: 1rem;
+}
+
+@keyframes fadein{
+    0%{
+        transform: scale(0);
+    }
+    25%{
+        transform: scale(40%);
+    }
+    50%{
+        transform: scale(80%);
+    }
+    75%{
+        transform: scale(120%);
+    }
+    100%{
+        transform: scale(100%);
+    }
 }

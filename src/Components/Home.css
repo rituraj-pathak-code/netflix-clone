@@ -36,8 +36,3 @@ h2 {
 
 }
 
-.home_scrolllock {
-    position: fixed;
-    height: 100vh;
-    overflow-y: hidden;
-}
