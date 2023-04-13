@@ -24,13 +24,14 @@
 }
 .modal__button{
     margin-right: 1rem;
-    width: 100px;
+    width: 120px;
     height: 30px;
     outline: none;
     border: none;
     background-color: #111111be;
     color: white;
     cursor: pointer;
+    padding: 5px;
     
 }
 .modal__closebtn{

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import { useContext } from "react";
 
-const Nav = () => {
+const Nav = ({ setQuery }) => {
   //For navabr scroll effect
   const [show, handleShow] = useState(false);
+
   useEffect(() => {
     function scrollEffect() {
       if (window.scrollY > 60) {
@@ -18,6 +20,10 @@ const Nav = () => {
       window.removeEventListener("scroll", scrollEffect);
     };
   }, []);
+  const searchHandler = (e) => {
+    setQuery(e.target.value);
+  };
+
   return (
     <div className={`nav ${show && "nav__black"}`}>
       <img
@@ -32,25 +38,17 @@ const Nav = () => {
           <Link to={"/"}>Home</Link>
         </li>
         <li>
-          <a href="#">TV Shows</a>
-        </li>
-        <li>
-          <a href="#">Movies</a>
-        </li>
-        <li>
           <Link to="../myList">My List</Link>
         </li>
-        <li>
-          <a href="#">About</a>
-        </li>
       </ul>
-      <Link to={"../loginpage"}>
+      
+      <a href="#">
         <img
           className="nav__avatar"
           src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
           alt="avatar-img"
         ></img>
-      </Link>
+      </a>
     </div>
   );
 };

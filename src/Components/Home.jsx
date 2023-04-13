@@ -19,6 +19,7 @@ function Home(props) {
       <div className={`${isModalOpen ? "home_overlay" : ""}`}></div>
 
       <Banner />
+
       <Row
         title="Netflix Original"
         fetchURL={requests.fetchNetflixOriginals}
@@ -30,7 +31,11 @@ function Home(props) {
         fetchURL={requests.fetchTrending}
         checkModal={checkModal}
       />
-      <Row title="Top Rated" fetchURL={requests.fetchTopRated} />
+      <Row
+        title="Top Rated"
+        fetchURL={requests.fetchTopRated}
+        checkModal={checkModal}
+      />
       <Row
         title="Action Movies"
         fetchURL={requests.fetchActionMovies}

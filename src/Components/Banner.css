@@ -45,3 +45,11 @@
     
    
 }
+@media screen and (max-width:500px){
+    .banner__description{
+        width: 250px;
+    }
+    .banner__title{
+        font-size: 2rem;
+    }
+}

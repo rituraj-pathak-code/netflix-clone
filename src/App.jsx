@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { createContext, useContext } from "react";
+import React, { useState } from "react";
 import Home from "./Components/Home";
 import LoginPage from "./Components/LoginPage";
 import Nav from "./Components/Nav";
@@ -16,7 +16,6 @@ function App() {
       </Routes>
     </Router>
   );
-  <Home />;
 }
 
 export default App;

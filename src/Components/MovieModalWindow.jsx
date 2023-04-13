@@ -1,8 +1,23 @@
 import React, { useState } from "react";
 import "./MovieModalWindow.css";
+import { useContext } from "react";
+import { CartContext } from "../Context";
 
-const MovieModalWindow = (props) => {
-  const opts = { height: "300", width: "100%", playerVars: { autoplay: 1 } };
+const MovieModalWindow = ({ movie, checkModal, closeModal }) => {
+  const { cart, setCart } = useContext(CartContext);
+  // const movieDetails = {
+  //   title: title,
+  //   description: description,
+  //   poster: poster,
+  // };
+
+  const removeMovieHandler = (id) => {
+    let reducedList = [...cart];
+    const newReducedList = reducedList.filter((item) => {
+      return item.id !== id;
+    });
+    setCart(newReducedList);
+  };
 
   return (
     <div className="movie_modal__container">
@@ -10,8 +25,8 @@ const MovieModalWindow = (props) => {
         <button
           className="modal__closebtn"
           onClick={() => {
-            props.closeModal(false);
-            props.checkModal(false);
+            closeModal(false);
+            checkModal(false);
           }}
         >
           X
@@ -21,19 +36,33 @@ const MovieModalWindow = (props) => {
           className="movie_modal__banner"
           style={{
             backgroundSize: "cover",
-            backgroundImage: `url("https://image.tmdb.org/t/p/original/${props.poster}")`,
+            backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.poster}")`,
             backgroundPosition: "center",
             height: "300px",
           }}
         >
           <div className="modal__buttons">
             <button className="modal__button">Play</button>
-            <button className="modal__button">Add to List</button>
+            {cart.includes(movie) ? (
+              <button
+                className="modal__button"
+                onClick={() => setCart(cart.filter((c) => c.id !== movie.id))}
+              >
+                Remove from list
+              </button>
+            ) : (
+              <button
+                onClick={() => setCart([...cart, movie])}
+                className="modal__button"
+              >
+                Add to List
+              </button>
+            )}
           </div>
         </div>
         <div className="modal__moviedesc">
-          <h1>{props.title}</h1>
-          <p>{props.description}</p>
+          <h1>{movie.title}</h1>
+          <p>{movie.description}</p>
         </div>
       </div>
     </div>

@@ -20,6 +20,7 @@ const Banner = () => {
     }
     fetchData();
   }, []);
+
   return (
     <header
       className="banner"
@@ -33,9 +34,8 @@ const Banner = () => {
         <h1 className="banner__title">{movie?.title}</h1>
         <div className="banner__buttons">
           <button className="banner__button">Play</button>
-          <button className="banner__button">My List</button>
         </div>
-        <p className="banner__description">{movie.overview}</p>
+        <p className="banner__description">{movie?.overview}</p>
       </div>
       <div className="banner__fadebottom"></div>
     </header>

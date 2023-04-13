@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import axios from "../axios";
 import "./Row.css";
 import MovieModalWindow from "./MovieModalWindow";
 const baseURL = "https://image.tmdb.org/t/p/original/";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const Row = (props) => {
   const [showModal, setshowModal] = useState(false);
@@ -12,13 +14,33 @@ const Row = (props) => {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(props.fetchURL);
+
       setMovies(request.data.results);
       return request;
     }
     fetchData();
   }, [props.fetchURL]);
 
-  const [movieInfo, setmovieInfo] = useState([]);
+  const [movieInfo, setmovieInfo] = useState({});
+
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 8,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 6,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 4,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 3,
+    },
+  };
 
   return (
     <div className="row">
@@ -29,35 +51,41 @@ const Row = (props) => {
             <MovieModalWindow
               checkModal={props.checkModal}
               key={movie.id}
-              title={movieInfo[0]}
-              description={movieInfo[1]}
-              poster={movieInfo[2]}
               closeModal={setshowModal}
+              movie={movieInfo}
             />
           )
       )}
-      <div className="row__posters">
+      <Carousel
+        responsive={responsive}
+        className="row__posters"
+        containerClass="carousel-container"
+        itemClass="carousel-item"
+      >
         {movies.map((movie) => (
-          <img
-            key={movie.id}
-            className={`row__poster ${props.isLargeRow && "row__posterLarge"}`}
-            src={`${baseURL}${
-              props.isLargeRow ? movie.poster_path : movie.backdrop_path
-            }`}
-            alt={movie.title}
-            onClick={() => {
-              setshowModal(true);
-              setmovieInfo([
-                movie.original_title,
-                movie.overview,
-                movie.backdrop_path,
-              ]);
-              props.checkModal(true);
-            }}
-          />
+          <div key={movie.id}>
+            <img
+              className={`row__poster ${
+                props.isLargeRow && "row__posterLarge"
+              }`}
+              src={`${baseURL}${
+                props.isLargeRow ? movie.poster_path : movie.backdrop_path
+              }`}
+              alt={movie.title}
+              onClick={() => {
+                setshowModal(true);
+                setmovieInfo({
+                  id: movie.id,
+                  title: movie.original_title,
+                  description: movie.overview,
+                  poster: movie.backdrop_path,
+                });
+                props.checkModal(true);
+              }}
+            />
+          </div>
         ))}
-        {/* {showModal && <MovieModalWindow />} */}
-      </div>
+      </Carousel>
     </div>
   );
 };

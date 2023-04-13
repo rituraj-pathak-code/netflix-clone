@@ -21,3 +21,9 @@
     font-size: 13px;
     color: gray;
 }
+
+@media screen and (max-width:560px) {
+    .footer{
+        gap: 0rem;
+    }
+}
