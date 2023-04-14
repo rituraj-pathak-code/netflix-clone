@@ -24,6 +24,15 @@
 
 @media screen and (max-width:560px) {
     .footer{
-        gap: 0rem;
+        gap: 1rem;
+        margin-left: 1rem;
     }
+    .footer__link{
+        font-size: 12px;
+    }
+        .footer__copyright {
+            font-size: 10px;
+            margin-top: 1.5rem;
+            color: gray;
+        }
 }

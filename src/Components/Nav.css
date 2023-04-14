@@ -8,6 +8,7 @@
     height: 65px;
     transition: all 0.3s ease-in;
     z-index: 100;
+   
 }
 .nav__logo{
     position: fixed;

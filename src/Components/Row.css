@@ -1,6 +1,7 @@
 .row{
     margin-left: 20px;
     padding-bottom: 1rem;
+   
 }
 .title{
     margin-left: 25px;
@@ -43,4 +44,9 @@
 }
 .movie_modal_element{
     z-index: 99;
+}
+@media screen and (max-width:520px){
+    .row{
+        margin-left: 0px;
+    }
 }
