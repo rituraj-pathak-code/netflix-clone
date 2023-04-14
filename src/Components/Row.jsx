@@ -24,21 +24,55 @@ const Row = (props) => {
   const [movieInfo, setmovieInfo] = useState({});
 
   const responsive = {
+    supersuperLargeDesktop: {
+      breakpoint: { max: 1700, min: 1550 },
+      items: 9,
+    },
     superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
+      breakpoint: { max: 1550, min: 1370 },
       items: 8,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 6,
+      breakpoint: { max: 1370, min: 1024 },
+      items: 7,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 780 },
+      items: 5,
+    },
+    bigger_mobile: {
+      breakpoint: { max: 780, min: 578 },
       items: 4,
+    },
+    big_mobile: {
+      breakpoint: { max: 578, min: 464 },
+      items: 3,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
+      items: 2,
+    },
+  };
+  const responsivesub = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 7,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 4,
+    },
+    big_mobile: {
+      breakpoint: { max: 768, min: 464 },
       items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
     },
   };
 
@@ -57,7 +91,7 @@ const Row = (props) => {
           )
       )}
       <Carousel
-        responsive={responsive}
+        responsive={props.isLargeRow ? responsive : responsivesub}
         className="row__posters"
         containerClass="carousel-container"
         itemClass="carousel-item"
